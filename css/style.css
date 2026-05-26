@@ -1,0 +1,235 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+
+:root {
+  --color-white: #fff;
+  --color-bg: #f2b616;
+  --color-container-bg: #191200;
+  --color-input-bg: #272111;
+  --color-accent: #f0be15;
+  --color-accent-hover: #dbb205;
+  --color-tooltip-bg: #000;
+  --color-error: #e74c3c;
+  --color-success: #32d190;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Montserrat', sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 300;
+  font-style: normal;
+  font-variation-settings: 'width' 100;
+}
+
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background-color: var(--color-bg);
+}
+
+.container {
+  width: 100%;
+  max-width: 400px;
+  padding: 40px;
+  background: var(--color-container-bg);
+}
+
+.title {
+  text-align: center;
+  margin-bottom: 30px;
+  color: var(--color-accent-hover);
+  font-size: 28px;
+  font-weight: 300;
+}
+
+.container .input-box {
+  position: relative;
+  padding-bottom: 20px;
+}
+
+.container .input-box label {
+  display: block;
+  margin-bottom: 5px;
+  color: var(--color-white);
+  font-size: 15px;
+}
+
+.container .input-box input {
+  width: 100%;
+  padding: 10px 45px 10px 10px; /* Added right padding so text doesn't overlap the eye icon */
+  border: 1px solid transparent;
+  outline: none;
+  color: var(--color-white);
+  background: var(--color-input-bg);
+  font-size: 18px;
+  transition:
+    border-color 0.25s ease,
+    box-shadow 0.25s ease;
+}
+
+.container .input-box input:focus {
+  border-color: var(--color-accent);
+  box-shadow: 0 0 0 2px rgba(240, 190, 21, 0.12);
+}
+
+/* Eye Icon Container Positioning */
+.input-box .eye-tooltip {
+  position: absolute;
+  right: 0;
+  bottom: 20px;
+  width: 45px;
+  height: 44px; /* Matches input height */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 2;
+  --tooltip-arrow-size: 5px;
+}
+
+/* Eye Icon Styling */
+.input-box .eye {
+  position: static; /* Removes redundant inner absolute positioning */
+  transform: none;
+  color: var(--color-accent-hover);
+  cursor: pointer;
+  transition:
+    color 0.25s ease,
+    transform 0.25s ease;
+}
+
+.input-box .eye:hover {
+  color: var(--color-accent);
+  transform: scale(1.1);
+}
+
+/* Eye Tooltip Styling */
+.input-box .eye-tooltip:hover::before {
+  content: attr(data-eye-title);
+  position: absolute;
+  right: 5px;
+  bottom: 100%;
+  transform: translateY(-8px);
+  width: max-content;
+  padding: 6px 10px;
+  pointer-events: none;
+  color: var(--color-white);
+  background: var(--color-tooltip-bg);
+  border-radius: 5px;
+  font-size: 12px;
+  text-transform: capitalize;
+  white-space: nowrap;
+  opacity: 1;
+  visibility: visible;
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.25);
+}
+
+.input-box .eye-tooltip:hover::after {
+  content: '';
+  position: absolute;
+  right: 18px;
+  bottom: calc(100% - 2px);
+  border-left: var(--tooltip-arrow-size) solid transparent;
+  border-right: var(--tooltip-arrow-size) solid transparent;
+  border-top: var(--tooltip-arrow-size) solid var(--color-tooltip-bg);
+  opacity: 1;
+  visibility: visible;
+}
+
+/* Remember Me & Forgot Password Layout */
+.remember-me {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 15px;
+  font-size: 14px;
+  color: var(--color-white);
+}
+
+.remember-me .checkbox-field {
+  accent-color: var(--color-accent);
+  cursor: pointer;
+}
+
+.remember-me label {
+  cursor: pointer;
+  user-select: none;
+}
+
+.remember-me .forgot-password-link {
+  margin-left: auto; /* Pushes forgot password link to the far right */
+  color: var(--color-accent-hover);
+  text-decoration: none;
+  font-size: 13.5px;
+  transition: color 0.25s ease;
+}
+
+.remember-me .forgot-password-link:hover {
+  color: var(--color-accent);
+  text-decoration: underline;
+}
+
+.hint-text {
+  min-height: 18px;
+  margin-bottom: 10px;
+  font-size: 13px;
+}
+
+.input-box input.error {
+  border-color: var(--color-error);
+}
+
+.input-box input.success {
+  border-color: var(--color-success);
+}
+
+.container .btn-box .btn {
+  width: 100%;
+  padding: 10px;
+  border: none;
+  outline: none;
+  color: var(--color-white);
+  font-size: 16px;
+  font-weight: 600;
+  background: var(--color-accent);
+  cursor: pointer;
+  transition: background 0.25s ease;
+}
+
+.container .btn-box .btn:hover {
+  background: var(--color-accent-hover);
+}
+
+.container .register-footer {
+  font-size: 14.5px;
+  text-align: center;
+  margin: 20px 0 10px;
+}
+
+.container .register-footer p {
+  color: var(--color-white);
+}
+
+.container .register-footer .register-link {
+  color: var(--color-accent);
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.container .register-footer .register-link:hover {
+  text-decoration: underline;
+}
+
+@media (max-width: 480px) {
+  .container {
+    padding: 30px 25px;
+  }
+
+  .title {
+    font-size: 24px;
+  }
+}
