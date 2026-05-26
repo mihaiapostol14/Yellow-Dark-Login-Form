@@ -1,0 +1,160 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
+
+:root {
+  --color-white: #fff;
+  --color-bg: #f2b616;
+  --color-container-bg: #191200;
+  --color-input-bg: #272111;
+  --color-accent: #f0be15;
+  --color-accent-hover: #dbb205;
+  --color-tooltip-bg: #000;
+  --color-error: #e74c3c;
+  --color-success: #32d190;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Montserrat', sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 300;
+  font-style: normal;
+  font-variation-settings: 'width' 100;
+}
+
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background-color: var(--color-bg);
+}
+
+.container {
+  width: 100%;
+  max-width: 400px;
+  padding: 40px;
+  background: var(--color-container-bg);
+}
+
+.title {
+  text-align: center;
+  margin-bottom: 30px;
+  color: var(--color-accent-hover);
+  font-size: 28px;
+  font-weight: 300;
+}
+
+.container .input-box label {
+  color: var(--color-white);
+}
+
+.container .input-box input {
+  width: 100%;
+  padding: 10px;
+  border: 2px solid transparent;
+  outline: none;
+  font-size: 18px;
+  margin-top: 5px;
+  color: var(--color-white);
+  background: var(--color-input-bg);
+  transition: border-color 0.3s ease;
+}
+
+.container .input-box {
+  position: relative;
+  padding-bottom: 5%;
+}
+
+.input-box .eye-tooltip:hover::before,
+.input-box .eye-tooltip:hover::after {
+  content: attr(data-eye-title);
+  position: absolute;
+  width: max-content;
+  left: 65%;
+  bottom: 65%;
+  transform: translateY(-50%) scale(0.8);
+  padding: 0.3em 0.6em;
+  pointer-events: none;
+  transition: all 0.3s;
+  text-transform: capitalize;
+  background: var(--color-tooltip-bg);
+  color: var(--color-white);
+  border-radius: 4px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.input-box .eye {
+  position: absolute;
+  right: 15px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: var(--color-accent-hover);
+  cursor: pointer;
+}
+
+.container .remember-me .checkbox-field:active {
+  color: var(--color-container-bg);
+}
+
+.container .remember-me {
+  position: relative;
+  margin-bottom: 10px;
+  color: var(--color-white);
+}
+
+.remember-me .forgot-password-link {
+  position: absolute;
+  right: 0;
+  color: var(--color-white);
+  text-decoration: none;
+}
+
+.container .btn-box .btn {
+  width: 100%;
+  padding: 10px;
+  border: none;
+  outline: none;
+  color: var(--color-white);
+  font-size: 16px;
+  background: var(--color-accent);
+  cursor: pointer;
+}
+
+.form-hint-text {
+  margin-bottom: 10px;
+}
+
+.remember-me .checkbox-field {
+  accent-color: var(--color-accent);
+}
+
+.container .register-footer {
+  font-size: 14.5px;
+  text-align: center;
+  margin: 20px 0 10px;
+}
+
+.container .register-footer p {
+  color: var(--color-white);
+}
+
+.container .register-footer .register-link {
+  color: var(--color-white);
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.container .register-footer .register-link:hover {
+  text-decoration: underline;
+}
+
+/* Validation states */
+.input-box input.error {
+  border-color: var(--color-error);
+}
+
+.input-box input.success {
+  border-color: var(--color-success);
+}
